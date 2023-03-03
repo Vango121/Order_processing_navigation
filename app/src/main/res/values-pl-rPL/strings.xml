@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Order processing</string>
+    <string name="onPrescription">Na receptę</string>
+    <string name="nonPrescription">Bez recepty</string>
+    <string name="quantity">Ilosc: %d</string>
+    <string name="dashboard">Kokpit</string>
+    <string name="cart">Koszyk</string>
+    <string name="orders">Zamówienia</string>
+    <string name="settings">Ustawienia</string>
+    <string name="total_price">Cena całkowita %.2f</string>
+    <string name="scan_order">Skanuj kolejne zamówienie</string>
+    <string name="no_data">Brak danych</string>
+    <string name="generate_qr_code">Wygeneruj kod qr i zarezerwuj zamówienie</string>
+    <string name="login_section">Sekcja logowania</string>
+    <string name="username">Nazwa użytkownika</string>
+    <string name="password">Hasło</string>
+    <string name="login">Zaloguj się</string>
+    <string name="register">Zarejestruj się</string>
+    <string name="register_section">Sekcja rejestracji</string>
+    <string name="order_numeber">Zamówienie numer: %d</string>
+    <string name="prescription_required">Wymagana recepta</string>
+    <string name="hello_pharmacist">Witaj aptekarzu!</string>
+    <string name="log_out">Wyloguj się</string>
+    <string name="scan">Skanuj zamówienie</string>
+    <string name="scanner_title">Skaner</string>
+    <string name="product_list">Lista produktów</string>
+    <string name="order_placed">Zamówienie złożone</string>
+    <string name="order_ready">Zamówienie gotowe</string>
+    <string name="order_completed">Zamówienie ukończone</string>
+    <string name="status_changed">Status zamówienia zmieniony</string>
+    <string name="number_of_products">Liczba produktów: %d</string>
+    <string name="number_of_orders">Liczba zamówień: %d</string>
+    <string name="all_orders">Wszystkie zamówienia</string>
+    <string name="your_orders">Twoje zamówienia</string>
+    <string name="order_already_completed">Zamówienie zostało już zrealizowane</string>
+    <string name="empty_cart">Nie mozna wygenerowac qr kodu dla pustego koszyka</string>
+    <string name="wrong_password">Błędny login lub hasło</string>
+</resources>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.products.ProductListFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.vango.orderprocessing.ui.products.ProductListViewModel" />
+
+        <variable
+            name="adapter"
+            type="com.vango.orderprocessing.ui.products.ProductsAdapter" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/fragment_background">
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/grey"
+        app:layout_constraintTop_toBottomOf="@id/filtersLayout" />
+
+    <LinearLayout
+        android:id="@+id/filtersLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/prescriptionFilterButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            android:onClick="@{() -> viewModel.prescriptionFilterOnClick()}"
+            app:cardBackgroundColor="@color/white">
+
+            <TextView
+                android:id="@+id/prescriptionFilterTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.onPrescription ? @string/onPrescription : @string/nonPrescription}"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:text="On prescription"/>
+
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/divider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            app:visible="@{viewModel.productsList.size() == 0}"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/medicinesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/medicines_item"
+        app:setAdapter="@{adapter}"
+        app:submitList="@{viewModel.productsList}"
+        app:visible="@{viewModel.productsList.size() > 0}"
+        app:layout_constraintTop_toBottomOf="@id/divider"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Order processing</string>
+    <string name="price" translatable="false">%.2f zł</string>
+    <string name="onPrescription">On prescription</string>
+    <string name="nonPrescription">Non prescription</string>
+    <string name="quantity">Quantity: %d</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="cart">Cart</string>
+    <string name="orders">Orders</string>
+    <string name="settings">Settings</string>
+    <string name="total_price">Total price: %.2f</string>
+    <string name="scan_order">Scan another order </string>
+    <string name="no_data">No data</string>
+    <string name="generate_qr_code">Generate qr code and reserve products</string>
+    <string name="login_section">Login section</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
+    <string name="login">Login</string>
+    <string name="register_section">Register section</string>
+    <string name="register">register</string>
+    <string name="order_numeber">Order number: %d</string>
+    <string name="prescription_required">Prescription required</string>
+    <string name="hello_pharmacist">Hello pharmacist!</string>
+    <string name="log_out">Log out</string>
+    <string name="scan">Scan order</string>
+    <string name="scanner_title">Scanner</string>
+    <string name="product_list">Product List</string>
+    <string name="order_placed">Order placed</string>
+    <string name="order_ready">Order ready</string>
+    <string name="order_completed">Order completed</string>
+    <string name="status_changed">Order status changed</string>
+    <string name="number_of_products">Number of products: %d</string>
+    <string name="number_of_orders">Number of orders: %d</string>
+    <string name="all_orders">All orders</string>
+    <string name="your_orders">Your orders</string>
+    <string name="order_already_completed">Order already completed</string>
+    <string name="empty_cart">Can\'t generate qr code for empty cart</string>
+    <string name="wrong_password">Wrong username or password</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

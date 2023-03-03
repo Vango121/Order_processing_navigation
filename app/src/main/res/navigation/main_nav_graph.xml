@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/dashboardFragment">
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.vango.orderprocessing.ui.dashboard.DashboardFragment"
+        android:label="@string/dashboard"
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/action_dashboardFragment_to_ordersFragment"
+            app:destination="@id/ordersFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_productListFragment"
+            app:destination="@id/productListFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_pharmaceutistDashboardFragment"
+            app:destination="@id/pharmaceutistDashboardFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.vango.orderprocessing.ui.cart.CartFragment"
+        android:label="@string/cart"
+        tools:layout="@layout/fragment_cart"/>
+
+    <fragment
+        android:id="@+id/ordersFragment"
+        android:name="com.vango.orderprocessing.ui.orders.OrdersFragment"
+        android:label="@string/orders"
+        tools:layout="@layout/fragment_orders">
+        <action
+            android:id="@+id/action_ordersFragment_to_orderDetailsFragment"
+            app:destination="@id/orderDetailsFragment" >
+
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.vango.orderprocessing.ui.settings.SettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_settings"/>
+
+    <fragment
+        android:id="@+id/productListFragment"
+        android:name="com.vango.orderprocessing.ui.products.ProductListFragment"
+        android:label="@string/product_list"
+        tools:layout="@layout/fragment_product_list">
+        <action
+            android:id="@+id/action_productListFragment_to_blankFragment"
+            app:destination="@id/blankFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/pharmaceutistDashboardFragment"
+        android:name="com.vango.orderprocessing.ui.pharmaceutist.dashboard.DashboardPharmeceutistFragment"
+        android:label="@string/dashboard"
+        tools:layout="@layout/fragment_dashboard_pharmeceutist"/>
+
+    <fragment
+        android:id="@+id/scannerFragment"
+        android:name="com.vango.orderprocessing.ui.pharmaceutist.scanner.ScannerFragment"
+        android:label="@string/scanner_title"
+        tools:layout="@layout/fragment_scanner"/>
+
+    <fragment android:id="@+id/orderDetailsFragment"
+        android:name="com.vango.orderprocessing.ui.OrderDetailsFragment"
+        tools:layout="@layout/fragment_order_details">
+        <argument
+            android:name="order"
+            app:argType="com.vango.orderprocessing.remote.Order" />
+    </fragment>
+
+    <fragment android:id="@+id/blankFragment"
+        android:name="com.vango.orderprocessing.BlankFragment"
+        tools:layout="@layout/fragment_blank" />
+
+</navigation>

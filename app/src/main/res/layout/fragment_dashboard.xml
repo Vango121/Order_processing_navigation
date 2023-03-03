@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.dashboard.DashboardFragment">
+
+    <data>
+        <variable
+            name="prescriptionAdapter"
+            type="com.vango.orderprocessing.ui.dashboard.MedicinesAdapter" />
+        <variable
+            name="nonPrescriptionAdapter"
+            type="com.vango.orderprocessing.ui.dashboard.MedicinesAdapter" />
+        <variable
+            name="viewModel"
+            type="com.vango.orderprocessing.ui.dashboard.DashboardViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/fragment_background"
+        android:padding="10dp">
+
+    <RelativeLayout
+        android:id="@+id/prescriptionLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/prescriptionTextView">
+
+        <ProgressBar
+            android:id="@+id/loaderPrescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:visible="@{viewModel.prescriptionMedicines == null}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_data"
+            android:layout_centerInParent="true"
+            app:visible="@{viewModel.prescriptionMedicines.size() == 0}" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/prescriptionRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:orientation="horizontal"
+            app:setAdapter="@{prescriptionAdapter}"
+            app:submitList="@{viewModel.prescriptionMedicines}"
+            app:visible="@{viewModel.prescriptionMedicines.size() > 0}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/nonPrescriptionLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/nonPrescriptionTextView">
+
+        <ProgressBar
+            android:id="@+id/loaderNonPrescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:visible="@{viewModel.nonPrescriptionMedicines.size() == 0}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_data"
+            android:layout_centerInParent="true"
+            app:visible="@{viewModel.nonPrescriptionMedicines.size() == 0}" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/nonPrescriptionRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:orientation="horizontal"
+            app:setAdapter="@{nonPrescriptionAdapter}"
+            app:submitList="@{viewModel.nonPrescriptionMedicines}"
+            app:visible="@{viewModel.nonPrescriptionMedicines.size() > 0}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/prescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/onPrescription"
+        style="@style/categoryText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nonPrescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nonPrescription"
+        style="@style/categoryText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/prescriptionLayout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

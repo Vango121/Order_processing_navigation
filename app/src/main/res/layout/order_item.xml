@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="order"
+            type="com.vango.orderprocessing.remote.Order" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+    <TextView
+        android:id="@+id/order_number_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:text="@{@string/order_numeber(order.orderId)}"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Zamówienie numer: 4" />
+
+    <TextView
+        android:id="@+id/price_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp"
+        android:text="@{@string/total_price(order.calculateTotalPrice())}"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/order_number_textView"
+        tools:text="Koszt zamówienia: 50 zł" />
+
+        <TextView
+            android:id="@+id/prescription_textiew"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/prescription_required"
+            android:layout_marginStart="10dp"
+            android:textSize="15sp"
+            android:layout_marginTop="3dp"
+            app:visible="@{order.isPrescription()}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/order_number_textView" />
+
+        <TextView
+            android:id="@+id/status_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            app:stringRes="@{order.getOrderStatus()}"
+            app:layout_constraintStart_toEndOf="@id/price_textView"
+            app:layout_constraintTop_toBottomOf="@id/order_number_textView"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
+            tools:text="Status: w realizacji" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/grey"
+            android:layout_marginTop="5dp"
+            app:layout_constraintTop_toBottomOf="@id/price_textView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
